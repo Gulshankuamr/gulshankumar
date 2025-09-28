@@ -3,7 +3,14 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+  details: string;
+}
+
+const features: Feature[] = [
   {
     title: "Website Development",
     description: "Custom websites tailored to your vision.",
@@ -43,7 +50,7 @@ const features = [
 
 export default function Services() {
   const [showModal, setShowModal] = useState(false);
-  const [selectedFeature, setSelectedFeature] = useState<any>(null);
+  const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
 
   const carousel = useRef<HTMLDivElement>(null);
 
@@ -62,7 +69,7 @@ export default function Services() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showModal]);
 
-  const openModal = (feature: any) => {
+  const openModal = (feature: Feature) => {
     setSelectedFeature(feature);
     setShowModal(true);
   };
