@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, Instagram , FileUser} from 'lucide-react';
+import {  Linkedin,  Mail, Instagram , FileUser} from 'lucide-react';
+
 
 // Import social icons
 import profileImage from '/public/gulshan.jpg'; // Replace with your actual image path

@@ -31,7 +31,6 @@ export default function ContactPage() {
   })
 
   // ====== CONFIGURE THESE WITH YOUR EmailJS DETAILS ======
-  // Replace with your EmailJS service ID, template ID and public key
   const EMAILJS_SERVICE_ID = "service_185m7xb"
   const EMAILJS_TEMPLATE_ID = "template_jhrfdll"
   const EMAILJS_PUBLIC_KEY = "OPzKfISUUk4p8vW-B"
@@ -39,13 +38,11 @@ export default function ContactPage() {
 
   async function onSubmit(values: FormSchema) {
     setIsSubmitting(true)
-
     try {
-      // send the form via EmailJS (ensure your EmailJS template maps fields correctly)
       const response = await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current!, // form element reference
+        formRef.current!,
         EMAILJS_PUBLIC_KEY
       )
 
@@ -63,10 +60,9 @@ export default function ContactPage() {
     }
   }
 
-  // WhatsApp prefilled message + open chat
-  const WHATSAPP_NUMBER = "+917393931450" // ensure this is your correct number (E.164)
+  const WHATSAPP_NUMBER = "+917393931450"
   const handleWhatsAppClick = () => {
-    const message = "Hi Gulshan, I'm contacting you from your portfolio website. I need website services."
+    const message = "Hi Gulshan, I&apos;m contacting you from your portfolio website. I need website services."
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
@@ -77,15 +73,15 @@ export default function ContactPage() {
       icon: FaInstagram,
       href: "https://www.instagram.com/developer_tipss",
       color: "hover:text-pink-500",
-      description: "Follow my journey"
+      description: "Follow my journey",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
       href: "https://linkedin.com/in/gulshan-kumar-61b446253",
       color: "hover:text-blue-500",
-      description: "Professional network"
-    }
+      description: "Professional network",
+    },
   ]
 
   return (
@@ -106,7 +102,7 @@ export default function ContactPage() {
 
                 {/* WhatsApp / Phone */}
                 <div className="mb-6">
-                    <div onClick={handleWhatsAppClick} className="flex items-center space-x-3 p-3 bg-[#0f0f0f] rounded-md hover:bg-[#2a2a2a] transition-all duration-300 cursor-pointer group">
+                  <div onClick={handleWhatsAppClick} className="flex items-center space-x-3 p-3 bg-[#0f0f0f] rounded-md hover:bg-[#2a2a2a] transition-all duration-300 cursor-pointer group">
                     <div className="bg-green-500/10 p-2 rounded-md group-hover:bg-green-500/20 transition-colors duration-300">
                       <FaWhatsapp className="text-green-500 text-lg" />
                     </div>
@@ -120,7 +116,7 @@ export default function ContactPage() {
                       <FaPhone className="text-green-500 text-lg" />
                     </div>
                     <div>
-                      <p className="font-medium text-white text-sm">Contect</p>
+                      <p className="font-medium text-white text-sm">Contact</p>
                       <p className="text-gray-400 text-xs">{WHATSAPP_NUMBER}</p>
                     </div>
                   </div>
@@ -129,19 +125,22 @@ export default function ContactPage() {
                 {/* Social Links */}
                 <div className="flex-1">
                   <h4 className="text-base font-medium text-gray-200 mb-3">Follow Me</h4>
-                  {socialLinks.map((social, index) => (
-                    <motion.div key={social.name} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * index }} className="mb-3">
-                      <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-[#0f0f0f] rounded-md hover:bg-[#2a2a2a] transition-all duration-300 group">
-                        <div className="bg-gray-800 p-2 rounded-md group-hover:bg-gray-700 transition-colors duration-300">
-                          <social.icon className={`text-lg text-gray-400 group-hover:text-white ${social.color} transition-colors duration-300`} />
-                        </div>
-                        <div>
-                          <p className="font-medium text-white group-hover:text-yellow-400 transition-colors duration-300 text-sm">{social.name}</p>
-                          <p className="text-gray-400 text-xs">{social.description}</p>
-                        </div>
-                      </a>
-                    </motion.div>
-                  ))}
+                  {socialLinks.map((social, index) => {
+                    const Icon = social.icon
+                    return (
+                      <motion.div key={social.name} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * index }} className="mb-3">
+                        <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-[#0f0f0f] rounded-md hover:bg-[#2a2a2a] transition-all duration-300 group">
+                          <div className="bg-gray-800 p-2 rounded-md group-hover:bg-gray-700 transition-colors duration-300">
+                            <Icon className={`text-lg text-gray-400 group-hover:text-white ${social.color} transition-colors duration-300`} />
+                          </div>
+                          <div>
+                            <p className="font-medium text-white group-hover:text-yellow-400 transition-colors duration-300 text-sm">{social.name}</p>
+                            <p className="text-gray-400 text-xs">{social.description}</p>
+                          </div>
+                        </a>
+                      </motion.div>
+                    )
+                  })}
                 </div>
               </div>
             </motion.div>

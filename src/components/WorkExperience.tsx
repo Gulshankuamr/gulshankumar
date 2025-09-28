@@ -2,7 +2,9 @@
 
 import React from 'react';
 
-import EducationSection from './EducationSection';
+// import EducationSection from './EducationSection';
+import EducationSection from '@/components/EducationSection';
+
 import { motion } from 'framer-motion';
 import {
   Code,
@@ -16,7 +18,7 @@ import {
   Zap,
   Building2,
   LayoutGrid,
-  Car
+  
 } from 'lucide-react';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';

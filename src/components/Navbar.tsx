@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -16,21 +16,21 @@ interface NavBarProps {
   className?: string;
 }
 
+// Move navItems outside the component
+const navItems: NavItem[] = [
+  { name: "Home", url: "/" },
+  { name: "Projects", url: "/projects" },
+  { name: "About", url: "/about" },
+  { name: "Experience", url: "/experience" },
+  { name: "Contact", url: "/contact" }
+];
+
 const NavBar: React.FC<NavBarProps> = ({ className }) => {
   const pathname = usePathname();
   const [activeItem, setActiveItem] = useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
-
-  const navItems: NavItem[] = [
-    { name: "Home", url: "/" },
-    { name: "Projects", url: "/projects" },
-    { name: "About", url: "/about" },
-    { name: "Experience", url: "/experience" },
-    // { name: "Education", url: "/education" },
-    { name: "Contact", url: "/contact" }
-  ];
 
   // Update active item based on pathname
   useEffect(() => {
@@ -106,13 +106,11 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         </div>
 
         {/* CTA Button */}
-      
         <div className="hidden md:flex ml-4 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
           <Link href="/contact" className="text-white text-sm font-medium">
             Book a Call
           </Link>
         </div>
-        
       </div>
 
       {/* Mobile Menu */}
@@ -141,26 +139,25 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
                 {item.name}
               </Link>
             ))}
-           <div className="mt-3 group">
-            <a
-  href="/resumegk.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  download
-  aria-label="Resume"
-  className="w-32 md:w-36 px-2 py-2 rounded-full border border-purple-500 flex items-center justify-center bg-white/10 text-white font-medium hover:bg-purple-500 hover:text-white transition-colors mb-2 "
->
-  Resume
-</a>
-  <Link
-    href="/contact"
-    onClick={() => setIsMobileMenuOpen(false)}
-    className="block bg-white/20 px-4 py-2 rounded-full text-white text-sm text-center border border-white/10 group-hover:bg-green-500 group-hover:text-white transition duration-300"
-  >
-    Book a Call
-  </Link>
-</div>
-
+            <div className="mt-3 group">
+              <a
+                href="/resumegk.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                aria-label="Resume"
+                className="w-32 md:w-36 px-2 py-2 rounded-full border border-purple-500 flex items-center justify-center bg-white/10 text-white font-medium hover:bg-purple-500 hover:text-white transition-colors mb-2 "
+              >
+                Resume
+              </a>
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block bg-white/20 px-4 py-2 rounded-full text-white text-sm text-center border border-white/10 group-hover:bg-green-500 group-hover:text-white transition duration-300"
+              >
+                Book a Call
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

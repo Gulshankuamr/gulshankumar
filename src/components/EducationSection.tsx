@@ -1,11 +1,21 @@
-'use client'
+'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { BookOpen, Calendar, Building2, Award, Code, Users } from 'lucide-react';
 import Image from 'next/image';
 
-const educationData = [
+interface Education {
+  degree: string;
+  institute: string;
+  duration: string;
+  cgpa: string;
+  description: string[];
+  achievements?: string[];
+  logo?: string;
+}
+
+const educationData: Education[] = [
   {
     degree: 'Master of Computer Applications (MCA)',
     institute: 'Dr. Ram Manohar Lohia Avadh University, Ayodhya',
@@ -15,13 +25,13 @@ const educationData = [
       'Specialized in Frontend & MERN Stack development with hands-on projects.',
       'Led a team in AI-based projects including Traffic Prediction System using Python & ML models.',
       'Enhanced research & problem-solving skills through workshops, webinars, and tech competitions.',
-      'Gained practical experience in database management and full-stack web applications.'
+      'Gained practical experience in database management and full-stack web applications.',
     ],
     achievements: [
       'Published a minor research project on Machine Learning-based predictions.',
       'Completed 3+ advanced courses on React.js, Node.js, and Python.',
-      'Awarded “Best Performer” in university coding competitions.'
-    ]
+      'Awarded “Best Performer” in university coding competitions.',
+    ],
   },
   {
     degree: 'Bachelor of Computer Applications (BCA)',
@@ -31,42 +41,47 @@ const educationData = [
     description: [
       'Built strong foundation in Java, OOPs, DBMS, Web Development & Data Structures.',
       'Participated in coding contests, workshops, and technical clubs to strengthen programming skills.',
-      'Completed multiple practical projects including Document Management System and mini web apps.'
+      'Completed multiple practical projects including Document Management System and mini web apps.',
     ],
     achievements: [
       'Secured top 10% in semester exams consistently.',
       'Certified in Python & Web Development from reputed online platforms.',
-      'Active contributor in university tech forums and hackathons.'
-    ]
-  }
+      'Active contributor in university tech forums and hackathons.',
+    ],
+  },
 ];
 
-const EducationSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } }
-  };
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } },
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
-  };
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
-  };
+const cardVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
 
+const EducationSection: React.FC = () => {
   return (
     <section className="py-16 sm:py-20 w-full bg-black text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)',
+            backgroundSize: '20px 20px',
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,6 +100,7 @@ const EducationSection = () => {
           </p>
         </motion.div>
 
+        {/* Education Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -96,11 +112,18 @@ const EducationSection = () => {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-zinc-600 via-zinc-500 to-zinc-600 rounded-2xl blur opacity-10 group-hover:opacity-20 transition duration-500"></div>
                 <div className="relative bg-zinc-900 p-6 sm:p-8 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
+                  {/* Top Info */}
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8">
                     <div className="flex items-center mb-4 lg:mb-0">
                       {edu.logo && (
                         <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-900 to-emerald-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                          <Image src={edu.logo} alt="logo" className="object-contain" />
+                          <Image
+                            src={edu.logo}
+                            alt="logo"
+                            className="object-contain"
+                            width={64}
+                            height={64}
+                          />
                         </div>
                       )}
                       <div>
@@ -108,6 +131,7 @@ const EducationSection = () => {
                         <p className="text-sm sm:text-xl text-green-400 font-semibold">{edu.institute}</p>
                       </div>
                     </div>
+
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-gray-400 text-xs sm:text-sm">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />

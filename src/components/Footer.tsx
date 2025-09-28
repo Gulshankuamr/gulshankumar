@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Linkedin, Github, Instagram, Mail, Phone } from 'lucide-react';
+import { Linkedin, Instagram, Mail, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
     return (
@@ -20,7 +20,6 @@ const Footer: React.FC = () => {
                                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                                 <span className="sr-only">LinkedIn</span>
                             </Link>
-                          
                             <Link href="https://www.instagram.com/developer_tipss/" className="text-gray-400 hover:text-white transition-colors">
                                 <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                                 <span className="sr-only">Instagram</span>
@@ -33,21 +32,11 @@ const Footer: React.FC = () => {
                         <div>
                             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">The Website</h3>
                             <nav className="flex flex-col space-y-1 sm:space-y-2">
-                                <Link href="/" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">
-                                    Home
-                                </Link>
-                                <Link href="/projects" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">
-                                    Projects
-                                </Link>
-                                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">
-                                    About
-                                </Link>
-                                   <Link href="/experience" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">
-                                    Experience
-                                </Link>
-                                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">
-                                    Contact
-                                </Link>
+                                <Link href="/" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Home</Link>
+                                <Link href="/projects" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Projects</Link>
+                                <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">About</Link>
+                                <Link href="/experience" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Experience</Link>
+                                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Contact</Link>
                             </nav>
                         </div>
 
@@ -55,48 +44,11 @@ const Footer: React.FC = () => {
                         <div>
                             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Projects</h3>
                             <nav className="flex flex-col space-y-1 sm:space-y-2">
-                                <a
-                                   
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base"
-                                >
-                                    Myntra
-                                </a>
-                                <a
-                                   
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base"
-                                >
-                                    videochatapp
-                                </a>
-                                <a
-                                   
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base"
-                                >
-                                WeatherApp
-                                </a>
-                                <a
-                                   
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base"
-                                >
-                                    Awwwards
-                                 BlogSphere
-                                </a>
-                                   <a
-                                   
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base"
-                                >
-                                    Awwwards
-                                
-                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Myntra</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">VideoChatApp</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">WeatherApp</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">Awwwards</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-xs sm:text-base">BlogSphere</a>
                             </nav>
                         </div>
                     </div>
@@ -107,18 +59,13 @@ const Footer: React.FC = () => {
                             I&apos;m open to freelance projects, full-time roles, or collaborative ideas. Let&apos;s build something impactful together.
                         </p>
 
-                        <Link
-                            href="mailto:gulshan73939314@gmail.com"
-                            className="text-blue-400 hover:text-blue-300 transition-colors flex items-center text-sm sm:text-base"
-                        >
+                        <Link href="mailto:gulshan73939314@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors flex items-center text-sm sm:text-base">
                             <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" />
                             gulshan73939314@gmail.com
                         </Link>
-                        <Link href="tel:+91739393131450">
-                            <p className="mt-2 cursor-pointer text-blue-400 hover:text-blue-500 flex flex-row items-center text-sm sm:text-base">
-                                <Phone className="inline-block mr-1.5 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
-                                +91 7393931450
-                            </p>
+                        <Link href="tel:+91739393131450" className="mt-2 flex items-center text-blue-400 hover:text-blue-500 text-sm sm:text-base">
+                            <Phone className="inline-block mr-1.5 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5" />
+                            +91 7393931450
                         </Link>
                     </div>
                 </div>

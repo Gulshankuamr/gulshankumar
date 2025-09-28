@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useMotionValue, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const features = [
   {
@@ -42,27 +42,18 @@ const features = [
 ];
 
 export default function Services() {
-  const [width, setWidth] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [selectedFeature, setSelectedFeature] = useState(null);
+  const [selectedFeature, setSelectedFeature] = useState<any>(null);
 
-  const carousel = useRef(null);
-  const x = useMotionValue(0);
+  const carousel = useRef<HTMLDivElement>(null);
 
-  // calculate carousel width
+  // Close modal on outside click
   useEffect(() => {
-    if (carousel.current) {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }
-  }, []);
-
-  // close modal on outside click
-  useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (
         showModal &&
         carousel.current &&
-        !carousel.current.contains(e.target)
+        !carousel.current.contains(e.target as Node)
       ) {
         setShowModal(false);
       }
@@ -71,12 +62,12 @@ export default function Services() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showModal]);
 
-  const openModal = (feature) => {
+  const openModal = (feature: any) => {
     setSelectedFeature(feature);
     setShowModal(true);
   };
 
-  // animation variants
+  // Animation variants
   const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3 } },
