@@ -76,7 +76,7 @@ achievements: [
   duration: 'Jul 2024 - Dec 2024',
   location: 'Lucknow, Uttar Pradesh, India · On-site',
   description: [
-    'Gained hands-on experience in frontend web development using HTML5, CSS3, JavaScript, and Bootstrap.',
+    'Gained hands-on experience in frontend web development using HTML5, CSS3, JavaScript, and bootstrap.',
     'Worked on building responsive, scalable, and user-friendly interfaces.',
     'Enhanced understanding of modern development practices and UI/UX design principles.',
     'Improved skills in structuring clean and maintainable front-end code for real-world projects.'
