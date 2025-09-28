@@ -36,7 +36,7 @@ export default function ContactPage() {
   const EMAILJS_PUBLIC_KEY = "OPzKfISUUk4p8vW-B";
   // =======================================================
 
-  async function onSubmit(_values: FormSchema) {
+  async function onSubmit() {
     setIsSubmitting(true);
     try {
       const response = await emailjs.sendForm(
@@ -64,9 +64,10 @@ export default function ContactPage() {
   const handleWhatsAppClick = () => {
     const message =
       "Hi Gulshan, I&apos;m contacting you from your portfolio website. I need website services.";
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(
-      message
-    )}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace(
+      "+",
+      ""
+    )}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -112,7 +113,7 @@ export default function ContactPage() {
               className="w-full sm:w-80"
             >
               <div className="bg-zinc-950 border border-zinc-900 rounded-md p-6 hover:border-zinc-800 transition-all duration-300 h-full flex flex-col">
-                <h3 className="text-xl font-semibold mb-4 text-yellow-400 ">Let&apos;s Connect</h3>
+                <h3 className="text-xl font-semibold mb-4 text-yellow-400">Let&apos;s Connect</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed text-sm">
                   Ready to start your project? Reach out via WhatsApp or send a message using the form.
                 </p>
