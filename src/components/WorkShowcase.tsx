@@ -17,7 +17,7 @@ import PortfolioImage from "/public/assets/portfolio.png";
 import WebCrosImage from "/public/assets/web-cros.png";
 import blogsphere from "/public/assets/blogsphere.png";
 import videochatapp from "/public/assets/videochatapp.png";
-import Bootstrap from "/public/assets/bootstrap.png";
+import bootstrap from "/public/assets/bootstrap.png";
 import html from "/public/assets/html.png";
 import csss from "/public/assets/csss.png";
 import javascriptt from "/public/assets/javascriptt.png";
@@ -72,7 +72,7 @@ export default function WorkShowcaseSnapping() {
         "Built a modern, mobile-friendly e-commerce web application UI using React.js and Bootstrap, with reusable components, product listings, navigation bar, and category sections for consistent user experience.",
       techStack: [
         { name: "React", icon: react },
-        { name: "Bootstrap", icon: Bootstrap },
+        { name: "Bootstrap", icon: bootstrap },
         { name: "HTML", icon: html },
         { name: "CSSS", icon: csss },
         { name: "Javascriptt", icon: javascriptt },
