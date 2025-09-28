@@ -367,25 +367,48 @@ export default function WorkShowcaseSnapping() {
                 {projects.map((project, index) => {
                   const isHovered = hoveredProject === index;
                   return (
-                    <div key={project.id} ref={(el) => (projectRefs.current[index] = el)} className="py-24 flex items-center relative" onMouseEnter={() => setHoveredProject(index)} onMouseLeave={() => setHoveredProject(null)}>
-                      <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                        <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }} className="w-full cursor-pointer">
-                          <div className={`bg-gradient-to-b ${project.bgGradient} overflow-hidden rounded-3xl px-8 pt-10 flex flex-col`}>
-                            <div className="text-white flex flex-row text-2xl font-bold mb-6">
-                              {project.tagline}
-                              <div className="ml-auto flex items-center justify-center">
-                                <motion.div className="flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-6 py-3" initial={{ opacity: 0 }} animate={{ opacity: isHovered ? 1 : 0 }} transition={{ duration: 0.3 }}>
-                                  <ArrowRight className="w-5 h-5" />
-                                </motion.div>
-                              </div>
-                            </div>
-                            <div className={`relative h-80 w-full overflow-hidden transition-transform duration-300 rounded-xl mt-4 group ${isHovered ? "scale-110 -rotate-5" : "scale-100"}`}>
-                              <Image src={project.image} alt={project.title} />
-                            </div>
-                          </div>
-                        </motion.div>
-                      </Link>
-                    </div>
+                  <div
+  key={project.id}
+  ref={(el) => {
+    projectRefs.current[index] = el;
+  }}
+  className="py-24 flex items-center relative"
+  onMouseEnter={() => setHoveredProject(index)}
+  onMouseLeave={() => setHoveredProject(null)}
+>
+  <Link href={project.link} target="_blank" rel="noopener noreferrer">
+    <motion.div
+      whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+      className="w-full cursor-pointer"
+    >
+      <div
+        className={`bg-gradient-to-b ${project.bgGradient} overflow-hidden rounded-3xl px-8 pt-10 flex flex-col`}
+      >
+        <div className="text-white flex flex-row text-2xl font-bold mb-6">
+          {project.tagline}
+          <div className="ml-auto flex items-center justify-center">
+            <motion.div
+              className="flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-6 py-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ArrowRight className="w-5 h-5" />
+            </motion.div>
+          </div>
+        </div>
+        <div
+          className={`relative h-80 w-full overflow-hidden transition-transform duration-300 rounded-xl mt-4 group ${
+            isHovered ? "scale-110 -rotate-5" : "scale-100"
+          }`}
+        >
+          <Image src={project.image} alt={project.title} />
+        </div>
+      </div>
+    </motion.div>
+  </Link>
+</div>
+
                   );
                 })}
               </div>
