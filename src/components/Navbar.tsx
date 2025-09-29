@@ -140,16 +140,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
               </Link>
             ))}
             <div className="mt-3 group">
-              <a
-                href="/resumegk.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-                aria-label="Resume"
-                className="w-32 md:w-36 px-2 py-2 rounded-full border border-purple-500 flex items-center justify-center bg-white/10 text-white font-medium hover:bg-purple-500 hover:text-white transition-colors mb-2 "
-              >
-                Resume
-              </a>
+             
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
