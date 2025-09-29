@@ -5,6 +5,7 @@ import "./globals.css";
 
 import NavBar from "../components/Navbar";
 import Footer from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next"; // ✅ Import added
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,9 +84,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Gulshan Kumar",
-              image: "https://gulshankumar.vercel.app/myimage.png", // replace with your hosted profile image
+              image: "https://gulshankumar.vercel.app/myimage.png",
               jobTitle: "Full Stack Web Developer",
-               url: "https://gulshankumar.vercel.app", // replace with your actual portfolio domain
+              url: "https://gulshankumar.vercel.app",
               sameAs: [
                 "https://www.linkedin.com/in/gulshan-kumar-61b446253/",
                 "https://github.com/Gulshankuamr",
@@ -131,7 +132,7 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Google Search Console Verification (if needed) */}
+        {/* Google Search Console Verification */}
         <meta
           name="google-site-verification"
           content="ETpfMVbd5MVRbbOSI8n5MtBcYkJc7IUWaw9QGhatoCE"
@@ -143,6 +144,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
+        <SpeedInsights /> {/* ✅ Added for performance monitoring */}
       </body>
     </html>
   );
