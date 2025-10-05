@@ -181,9 +181,9 @@ const WorkExperience: React.FC = () => {
 
                   <div className="mb-6 sm:mb-8">
                     <p className="text-sm sm:text-lg text-gray-300 leading-relaxed mb-4">
-                      {work.company === 'DealsOfAgro'
-                        ? "At DealsOfAgro, I’m pioneering the development of a comprehensive e-commerce platform that’s transforming how farmers across Odisha access and purchase agricultural machinery — creating a digital bridge between technology and traditional farming."
-                        : "At Framtt, I’m building the core car rental management dashboard, empowering tenants to efficiently manage cars, bookings, and operations for a streamlined rental experience."}
+                      {work.company === 'ByteUprise'
+                          ? "At ByteUprise, I crafted modern web applications using React.js and Next.js, delivering responsive, high-performing, and reusable UI components while contributing to live projects and enhancing team collaboration."
+                          : "At Techpile Technology Pvt. Ltd., I built clean, responsive user interfaces using HTML, CSS, JavaScript, and Bootstrap, working on real-world projects like Myntra Clone, Taniqu, and Blankit websites to strengthen my frontend development skills."}
                     </p>
                   </div>
 
@@ -197,7 +197,7 @@ const WorkExperience: React.FC = () => {
                       >
                         <div className="text-green-400 font-bold text-base mb-1">
                           {index === 0 && <Users className="w-5 h-5 mx-auto mb-1" />}
-                          {index === 1 && (work.company === 'DealsOfAgro' ? <Tractor className="w-5 h-5 mx-auto mb-1" /> : <LayoutGrid className="w-5 h-5 mx-auto mb-1" />)}
+                          {index === 1 && (work.company === 'ByteUprise' ? <LayoutGrid className="w-5 h-5 mx-auto mb-1" /> : <LayoutGrid className="w-5 h-5 mx-auto mb-1" />)}
                           {index === 2 && <Globe className="w-5 h-5 mx-auto mb-1" />}
                           {index === 3 && <Zap className="w-5 h-5 mx-auto mb-1" />}
                         </div>
@@ -271,10 +271,10 @@ const WorkExperience: React.FC = () => {
 
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-between pt-5 border-t border-zinc-800">
                     <p className="text-sm text-gray-400 flex items-center gap-2">
-                      {work.company === 'DealsOfAgro'
+                      {work.company === 'ByteUprise'
                         ? <Tractor className="w-5 h-5 text-green-400" />
                         : <Globe className="w-5 h-5 text-green-400" />}
-                      {work.company === 'DealsOfAgro'
+                      {work.company === 'ByteUprise'
                         ? 'Revolutionizing agriculture through technology'
                         : 'Delivering technology-driven solutions that enhance usability and efficiency.'}
                     </p>
