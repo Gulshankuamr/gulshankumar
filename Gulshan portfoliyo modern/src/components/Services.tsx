@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants, Transition } from "framer-motion";
 
 interface Feature {
   title: string;
@@ -75,21 +75,26 @@ export default function Services() {
   };
 
   // Animation variants
-  const overlayVariants = {
+  const overlayVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3 } },
     exit: { opacity: 0, transition: { duration: 0.3 } },
   };
 
-  const modalVariants = {
+  const modalVariants: Variants = {
     hidden: { scale: 0.8, opacity: 0, y: 20 },
     visible: {
       scale: 1,
       opacity: 1,
       y: 0,
-      transition: { type: "spring", damping: 25, stiffness: 300 },
+      transition: { type: "spring" as const, damping: 25, stiffness: 300 } as Transition,
     },
-    exit: { scale: 0.8, opacity: 0, y: 20, transition: { duration: 0.3 } },
+    exit: {
+      scale: 0.8,
+      opacity: 0,
+      y: 20,
+      transition: { duration: 0.3 },
+    },
   };
 
   return (

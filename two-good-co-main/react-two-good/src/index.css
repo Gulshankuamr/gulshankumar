@@ -1,0 +1,5 @@
+/* Reset only; main styles live in style.css */
+:root {}
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; background: #F7F7F7; }
